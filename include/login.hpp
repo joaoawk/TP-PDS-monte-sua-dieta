@@ -4,15 +4,14 @@
 #include <unordered_map>
 
 class Usuario {
-    private:
+    public:
+
     std::string nome;
     std::string senha;
 
     std::unordered_map<std::string, std::string> listaUsuarioSenha();
 
     bool validarCredenciais(std::string nome_, std::string senha_);
-
-    public:
 
     void acessarConta(std::string nome_, std::string senha_);
 
