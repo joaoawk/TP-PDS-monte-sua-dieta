@@ -7,7 +7,7 @@ class Menu {
     
     public:
     std::string nome;
-    int selecao_menu;
+    int opcao_menu;
 
     Menu();
 

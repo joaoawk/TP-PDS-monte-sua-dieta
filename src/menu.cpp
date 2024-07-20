@@ -36,8 +36,8 @@ void Menu::mostrarOpcoes() {
     std::cout << "(1) Calcular seu gasto calórico" << std::endl;
     std::cout << "(2) Calcular quanto de água você precisa beber" << std::endl;
     std::cout << "(3) Sugestão de alimentos saudáveis para consumir" << std::endl;
-    while (std::cin >> selecao_menu) {
-        switch(selecao_menu) {
+    while (std::cin >> opcao_menu) {
+        switch(opcao_menu) {
             case 1:
                 std::cout << "Você escolheu a opção 1";
                 break;

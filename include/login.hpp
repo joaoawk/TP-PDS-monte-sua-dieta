@@ -4,6 +4,8 @@
 #include <unordered_map>
 
 class Usuario {
+    private:
+
     public:
 
     std::string nome;
