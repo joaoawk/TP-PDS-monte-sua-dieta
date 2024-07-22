@@ -1,4 +1,4 @@
-#include "../include/login.hpp"
+#include "../include/usuario.hpp"
 #include <unordered_map>
 #include <fstream>
 
@@ -15,10 +15,7 @@ std::unordered_map<std::string, std::string> Usuario::listaUsuarioSenha() {
 
 bool Usuario::validarCredenciais(std::string nome_, std::string senha_) {
     std::unordered_map<std::string, std::string> logins_ = listaUsuarioSenha();
-    if (logins_[nome_] == senha_)
-        return 1;
-    else
-        return 0;
+    return (logins_[nome_] == senha_);
 }
 
 void Usuario::acessarConta(std::string nome_, std::string senha_) {

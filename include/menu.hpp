@@ -5,9 +5,10 @@
 class Menu {
     private:
     
-    public:
     std::string nome;
     int opcao_menu;
+
+    public:
 
     Menu();
 
@@ -16,6 +17,8 @@ class Menu {
     void menuInicial();
 
     void mostrarOpcoes();
+
+    
 };
 
 #endif

@@ -1,7 +1,8 @@
 #include "../include/menu.hpp"
-#include "../include/login.hpp"
+#include "../include/usuario.hpp"
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 Menu::Menu() {
     iniciarLogin();
@@ -36,16 +37,27 @@ void Menu::mostrarOpcoes() {
     std::cout << "(1) Calcular seu gasto calórico" << std::endl;
     std::cout << "(2) Calcular quanto de água você precisa beber" << std::endl;
     std::cout << "(3) Sugestão de alimentos saudáveis para consumir" << std::endl;
+    std::cout << "(4) Alterar informações físicas" << std::endl;
+    std::cout << "(5) Sair" << std::endl;
+
     while (std::cin >> opcao_menu) {
         switch(opcao_menu) {
             case 1:
-                std::cout << "Você escolheu a opção 1";
+                
                 break;
             case 2:
-                std::cout << "Você escolheu a opção 2";
+                
                 break;
             case 3:
-                std::cout << "Você escolheu a opção 3";
+                
+                break;
+
+            case 4:
+                
+                break;
+            
+            case 5:
+                exit(0);
                 break;
         }
     }

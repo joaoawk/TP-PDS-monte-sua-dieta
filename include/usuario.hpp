@@ -1,15 +1,15 @@
-#ifndef LOGIN_HPP_
-#define LOGIN_HPP_
+#ifndef USUARIO_HPP_
+#define USUARIO_HPP_
 #include <string>
 #include <unordered_map>
 
 class Usuario {
     private:
 
-    public:
-
     std::string nome;
     std::string senha;
+
+    public:
 
     std::unordered_map<std::string, std::string> listaUsuarioSenha();
 
