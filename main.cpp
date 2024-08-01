@@ -1,10 +1,11 @@
 #include <iostream>
-#include "include/login.hpp"
-#include "include/menu.hpp"
+#include "include/Login.hpp"
+#include "include/Menu.hpp"
 #include <string>
 #include <unordered_map>
 
 int main() {
-    Menu menu; 
+    Menu m;
+    m.initialize();
     return 0;
 }

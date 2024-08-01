@@ -1,11 +1,18 @@
-all: build/main.o build/login.o build/menu.o
-	g++ build/main.o build/login.o build/menu.o -o dieta
+OUTPUT_DIR := build
 
-build/main.o: main.cpp include/*.hpp
+all: $(OUTPUT_DIR) build/main.o build/Login.o build/Menu.o
+	g++ build/main.o build/Login.o build/Menu.o -o dieta
+
+$(OUTPUT_DIR):
+	@if [ ! -d "$(SOME_DIR)" ]; then \
+		mkdir -p $(SOME_DIR); \
+	fi
+
+build/main.o: main.cpp include/*.hpp | $(OUTPUT_DIR)
 	g++ -c -o build/main.o main.cpp
 
-build/login.o: src/login.cpp include/login.hpp
-	g++ -c -o build/login.o src/login.cpp
+build/Login.o: src/Login.cpp include/Login.hpp | $(OUTPUT_DIR)
+	g++ -c -o build/Login.o src/Login.cpp
 	
-build/menu.o: src/menu.cpp include/menu.hpp
-	g++ -c -o build/menu.o src/menu.cpp
+build/Menu.o: src/Menu.cpp include/Menu.hpp | $(OUTPUT_DIR)
+	g++ -c -o build/Menu.o src/Menu.cpp
