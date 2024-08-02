@@ -60,6 +60,9 @@ void Login::insert() {
 
     std::cout << "Seu peso: ";
     std::cin >> temp_user.weight_;
+    
+    std::cout << "Seu peso: ";
+    std::cin >> temp_user.sexo_;
 
     std::cout << "Qual seu objetivo?\n";
     std::cout << "[1] Ganhar musculo\n";
@@ -102,7 +105,8 @@ void Login::insert() {
                   << temp_user.height_ << " "
                   << temp_user.weight_ << " "
                   << temp_user.objective_ << " "
-                  << temp_user.nivel_ << std::endl;
+                  << temp_user.nivel_ << " "
+                  << temp_user.sexo_ << std::endl;
         user_data.close();
     } else {
         std::cerr << "Erro ao abrir o arquivo de dados do usuário para escrita!" << std::endl;

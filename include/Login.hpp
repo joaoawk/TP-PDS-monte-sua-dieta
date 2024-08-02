@@ -19,6 +19,7 @@ class Login {
         int weight_;
         std::string objective_;
         int nivel_;
+        char sexo_;
     };
 
     User user_;
