@@ -1,7 +1,7 @@
 OUTPUT_DIR := build
 
-all: $(OUTPUT_DIR) build/main.o build/Login.o build/Menu.o
-	g++ build/main.o build/Login.o build/Menu.o -o dieta
+all: $(OUTPUT_DIR) build/main.o build/Login.o build/Menu.o build/Dieta.o
+	g++ build/main.o build/Login.o build/Menu.o build/Dieta.o -o dieta
 
 $(OUTPUT_DIR):
 	@if [ ! -d "$(SOME_DIR)" ]; then \
@@ -16,3 +16,6 @@ build/Login.o: src/Login.cpp include/Login.hpp | $(OUTPUT_DIR)
 	
 build/Menu.o: src/Menu.cpp include/Menu.hpp | $(OUTPUT_DIR)
 	g++ -c -o build/Menu.o src/Menu.cpp
+
+build/Dieta.o: src/Dieta.cpp include/Dieta.hpp | $(OUTPUT_DIR)
+	g++ -c -o build/Dieta.o src/Dieta.cpp
