@@ -3,6 +3,7 @@
 #include "../include/DietProfiles.hpp"
 #include <iostream>
 #include <cstdlib>
+#include <unordered_map>
 
 void Menu::clear() {
     std::cout << "\033[2J\033[1;1H";
@@ -10,6 +11,7 @@ void Menu::clear() {
 
 void Menu::options(const Login &L) {
     DietProfiles D(L.user_);
+    std::unordered_map<std::string, float> macro_list;
     while (true) {
     option_ = 0;
         clear();
@@ -26,10 +28,11 @@ void Menu::options(const Login &L) {
                 std::cout << "--- Calorias ---\n\n";
                 std::cout << "Suas calorias de manutenção são: " << D.get_basal_metabolism() << "kcal \n";
                 std::cout << "A quantidade de calorias que você precisa comer é: " << D.get_needed_calories() << "kcal \n";
+                macro_list = D.get_macros();
                 std::cout << "\n--- Macros ---\n\n";
-                std::cout << "Carboidratos: \n";
-                std::cout << "Proteinas: \n";
-                std::cout << "Gorduras: \n\n";
+                std::cout << "Carboidratos: " << static_cast<int> (macro_list["carbs"]) << "g\n";
+                std::cout << "Proteinas: " << static_cast<int> (macro_list["proteins"]) << "g\n";
+                std::cout << "Gorduras: " << static_cast<int>(macro_list["fats"]) << "g\n\n";
 
                 break;
 

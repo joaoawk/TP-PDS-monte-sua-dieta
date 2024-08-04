@@ -1,7 +1,6 @@
 #include "../include/DietProfiles.hpp"
 #include "../include/Login.hpp"
-
-
+#include <unordered_map>
 
 void DietProfiles::set_basal_metabolism(int weight, int height, char gender, int birth_year) {
   switch(gender) {
@@ -25,13 +24,26 @@ int DietProfiles::get_daily_water() {
 }
 
 int DietProfiles::get_needed_calories() {
-  int base_calories = get_basal_metabolism();
+  float base_calories = static_cast<float>(get_basal_metabolism());
+
+  float multiplier = 1.1f + (user_.level_ - 1) * 0.12f;
+
+  base_calories *= multiplier;
+
   if (user_.objective_ == "bulking") {
     base_calories += 500;
   } else if (user_.objective_ == "cutting") {
     base_calories -= 500;
   }
 
-  return base_calories;
+  return static_cast<int>(base_calories);
 }
 
+std::unordered_map<std::string, float> DietProfiles::get_macros() {
+  std::unordered_map<std::string, float> macros;
+  float calories = static_cast<float>(get_needed_calories());
+  macros["carbs"] = 0.6 * calories / 4.0;
+  macros["proteins"] = 0.3 * calories / 4.0;
+  macros["fats"] = 0.2 * calories / 9.0;
+  return macros;
+}
