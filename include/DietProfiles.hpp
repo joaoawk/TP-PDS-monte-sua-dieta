@@ -12,9 +12,13 @@ class DietProfiles {
 
     DietProfiles(const Login::User &user);
 
-    void set_calories(int weight, int height, char gender, int birth_year);
+    void set_basal_metabolism(int weight, int height, char gender, int birth_year);
 
-    int get_carlories();
+    int get_basal_metabolism();
+
+    int get_daily_water();
+
+    int get_needed_calories();
 };
 
 #endif
