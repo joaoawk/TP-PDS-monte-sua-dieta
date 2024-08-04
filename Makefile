@@ -1,11 +1,11 @@
 OUTPUT_DIR := build
 
-all: $(OUTPUT_DIR) build/main.o build/Login.o build/Menu.o build/Dieta.o
-	g++ build/main.o build/Login.o build/Menu.o build/Dieta.o -o dieta
+all: $(OUTPUT_DIR) build/main.o build/Login.o build/Menu.o build/Diet.o build/DietProfiles.o
+	g++ build/main.o build/Login.o build/Menu.o build/Diet.o build/DietProfiles.o -o dieta
 
 $(OUTPUT_DIR):
-	@if [ ! -d "$(SOME_DIR)" ]; then \
-		mkdir -p $(SOME_DIR); \
+	@if [ ! -d "$(OUTPUT_DIR)" ]; then \
+		mkdir $(OUTPUT_DIR); \
 	fi
 
 build/main.o: main.cpp include/*.hpp | $(OUTPUT_DIR)
@@ -17,5 +17,8 @@ build/Login.o: src/Login.cpp include/Login.hpp | $(OUTPUT_DIR)
 build/Menu.o: src/Menu.cpp include/Menu.hpp | $(OUTPUT_DIR)
 	g++ -c -o build/Menu.o src/Menu.cpp
 
-build/Dieta.o: src/Dieta.cpp include/Dieta.hpp | $(OUTPUT_DIR)
-	g++ -c -o build/Dieta.o src/Dieta.cpp
+build/Diet.o: src/Diet.cpp include/Diet.hpp | $(OUTPUT_DIR)
+	g++ -c -o build/Diet.o src/Diet.cpp
+
+build/DietProfiles.o: src/DietProfiles.cpp include/DietProfiles.hpp | $(OUTPUT_DIR)
+	g++ -c -o build/DietProfiles.o src/DietProfiles.cpp

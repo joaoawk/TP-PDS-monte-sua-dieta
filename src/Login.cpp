@@ -9,13 +9,14 @@ Login::Login() {
     while (user_data >> temp_user.username_
                      >> temp_user.password_
                      >> temp_user.name_
+                     >> temp_user.gender_
                      >> temp_user.birth_year_
                      >> temp_user.height_
                      >> temp_user.weight_
                      >> temp_user.objective_
-                     >> temp_user.nivel_) {
+                     >> temp_user.level_) {
         user_data_list[temp_user.username_] = temp_user;
-    }
+    } 
 }
 
 void Login::login() {
@@ -62,7 +63,7 @@ void Login::insert() {
     std::cin >> temp_user.weight_;
 
     std::cout << "Seu sexo: ";
-    std::cin >> temp_user.sexo_;
+    std::cin >> temp_user.gender_;
 
     std::cout << "Qual seu objetivo?\n";
     std::cout << "[1] Ganhar musculo\n";
@@ -86,8 +87,8 @@ void Login::insert() {
 
     std::cout << "De 1 a 5, qual seu nível de atividade física?\n";
     while (true) {
-        std::cin >> temp_user.nivel_;
-        if (temp_user.nivel_ < 1 || temp_user.nivel_ > 5) {
+        std::cin >> temp_user.level_;
+        if (temp_user.level_ < 1 || temp_user.level_ > 5) {
             std::cout << "Só são permitidos valores de 1 a 5. Insira outro.\n";
         } else {
             break;
@@ -101,12 +102,12 @@ void Login::insert() {
         user_data << temp_user.username_ << " "
                   << temp_user.password_ << " "
                   << temp_user.name_ << " "
+                  << temp_user.gender_ << " "
                   << temp_user.birth_year_ << " "
                   << temp_user.height_ << " "
                   << temp_user.weight_ << " "
                   << temp_user.objective_ << " "
-                  << temp_user.nivel_ << " "
-                  << temp_user.sexo_ << std::endl;
+                  << temp_user.level_ << std::endl;
         user_data.close();
     } else {
         std::cerr << "Erro ao abrir o arquivo de dados do usuário para escrita!" << std::endl;

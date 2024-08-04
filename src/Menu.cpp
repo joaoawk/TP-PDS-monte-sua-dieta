@@ -1,6 +1,7 @@
 #include "../include/Login.hpp"
 #include "../include/Menu.hpp"
-#include "../include/Dieta.hpp"
+#include "../include/Diet.hpp"
+#include "../include/DietProfiles.hpp"
 #include <iostream>
 #include <cstdlib>
 
@@ -10,18 +11,20 @@ void Menu::clear() {
 
 void Menu::options(const Login &L) {
     clear();
+    DietProfiles D(L.user_);
     option_ = 0;
+    std::cout << L.user_.name_ << ", seja bem-vindo!\n";
     std::cout << "Esta é a parte inicial do Monte sua Dieta. Para acessar a opcao, digite: \n\n";
     std::cout << "(1) Calcular seu gasto calórico\n";
     std::cout << "(2) Calcular quanto de água você precisa beber\n";
     std::cout << "(3) Calcular macros\n";
-    
-    std::cout << "(4) Sair\n";
+    std::cout << "(4) Alterar perfil\n";
+    std::cout << "(5) Sair\n";
     while(option_ > 4 || option_ < 1) {
         std::cin >> option_;
         switch(option_) {
             case 1:
-            // TODO
+            std::cout << "Suas calorias de manutenção são: " << D.get_carlories() << "\n";
 
             break;
 
@@ -34,6 +37,10 @@ void Menu::options(const Login &L) {
             break;
 
             case 4:
+            // TODO
+            break;
+
+            case 5:
             exit(0);
             break;
         }
@@ -54,7 +61,7 @@ void Menu::initialize() {
 
     if(option_ == 1) {
         login.login();
-        options(&login);
+        options(login);
     } else if (option_ == 2) {
         clear();
         login.insert();
