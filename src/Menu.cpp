@@ -1,5 +1,6 @@
 #include "../include/Login.hpp"
 #include "../include/Menu.hpp"
+#include "../include/Dieta.hpp"
 #include <iostream>
 #include <cstdlib>
 
@@ -7,7 +8,7 @@ void Menu::clear() {
     std::cout << "\033[2J\033[1;1H";
 }
 
-void Menu::options() {
+void Menu::options(const Login &L) {
     clear();
     option_ = 0;
     std::cout << "Esta é a parte inicial do Monte sua Dieta. Para acessar a opcao, digite: \n\n";
@@ -53,7 +54,7 @@ void Menu::initialize() {
 
     if(option_ == 1) {
         login.login();
-        options();
+        options(&login);
     } else if (option_ == 2) {
         clear();
         login.insert();

@@ -9,7 +9,7 @@ class Menu {
     int option_;
     void clear();
 
-    void options();
+    void options(const Login &L);
 
     public:
 
