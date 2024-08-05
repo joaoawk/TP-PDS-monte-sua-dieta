@@ -34,6 +34,29 @@ void Login::login() {
     }
 }
 
+void Login::update() {
+    user_data_list[user_.username_] = user_;
+    user_data_list[user_.username_] = user_;
+
+    std::ofstream user_data("user-data.txt");
+    if (user_data.is_open()) {
+        for (const auto& [username, user] : user_data_list) {
+            user_data << user.username_ << " "
+                      << user.password_ << " "
+                      << user.name_ << " "
+                      << user.gender_ << " "
+                      << user.birth_year_ << " "
+                      << user.height_ << " "
+                      << user.weight_ << " "
+                      << user.objective_ << " "
+                      << user.level_ << std::endl;
+        }
+        user_data.close();
+    } else {
+        std::cerr << "Erro ao abrir o arquivo de dados do usuário para escrita!" << std::endl;
+    }
+}
+
 void Login::insert() {
     User temp_user;
     int temp_choice;
@@ -70,22 +93,28 @@ void Login::insert() {
     std::cout << "[2] Perder gordura\n";
     std::cout << "[3] Manutenção calórica\n";
     std::cout << "[any] Qualquer outra tecla será manutenção calórica. Se quiser mudar depois, veja no aplicativo\n";
-    std::cin >> temp_choice;
-    switch (temp_choice) {
-        case 1:
-            temp_user.objective_ = "bulking";
+    while(true ){
+        std::cin >> temp_choice;
+        if(temp_choice > 3 || temp_choice < 1) {
+        switch (temp_choice) {
+            case 1:
+                temp_user.objective_ = "bulking";
+                break;
+            case 2:
+                temp_user.objective_ = "cutting";
+                break;
+            case 3:
+                temp_user.objective_ = "maintenance";
+                break;
+            default:
+                temp_user.objective_ = "maintenance";
+        }} else {
             break;
-        case 2:
-            temp_user.objective_ = "cutting";
-            break;
-        case 3:
-            temp_user.objective_ = "maintenance";
-            break;
-        default:
-            temp_user.objective_ = "maintenance";
+        }
     }
 
     std::cout << "De 1 a 5, qual seu nível de atividade física?\n";
+    
     while (true) {
         std::cin >> temp_user.level_;
         if (temp_user.level_ < 1 || temp_user.level_ > 5) {

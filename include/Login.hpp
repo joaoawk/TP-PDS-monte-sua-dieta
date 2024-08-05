@@ -26,6 +26,8 @@ class Login {
 
     void insert();
 
+    void update();
+
     bool verify(const std::string &usr, const std::string &pwd);
     
     User user_;
