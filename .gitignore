@@ -2,3 +2,5 @@
 /build
 # Executable file
 dieta
+# Keep private user-data-unchanged
+user-data.txt

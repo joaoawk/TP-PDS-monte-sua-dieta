@@ -82,10 +82,10 @@ void Login::insert() {
     std::cout << "Sua altura em centimetros: ";
     std::cin >> temp_user.height_;
 
-    std::cout << "Seu peso: ";
+    std::cout << "Seu peso em kg: ";
     std::cin >> temp_user.weight_;
 
-    std::cout << "Seu sexo: ";
+    std::cout << "Seu sexo (H|M): ";
     std::cin >> temp_user.gender_;
 
     std::cout << "Qual seu objetivo?\n";
