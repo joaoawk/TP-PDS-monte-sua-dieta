@@ -21,7 +21,8 @@ void Menu::options(Login &L) {
         std::cout << "(1) Calcular seu gasto calórico\n";
         std::cout << "(2) Calcular quanto de água você precisa beber\n";
         std::cout << "(3) Alterar perfil\n";
-        std::cout << "(4) Sair\n\n> ";
+        std::cout << "(4) Opções Alimentares\n";
+        std::cout << "(5) Sair\n\n> ";
         std::cin >> option_;
         clear();
         switch(option_) {
@@ -127,8 +128,19 @@ void Menu::options(Login &L) {
                 L.update();
                 break;
             }
-
-            case 4:
+            case 4: {
+                std::cout << "--- Sugestões de Alimentos Saudáveis e suas calorias em 100 gramas ---\n\n";
+                auto meals = D.suggest_meals();
+                for (const auto &meal : meals) {
+                    std::cout << meal.first << ":\n";
+                    for (const auto &item : meal.second) {
+                        std::cout << "  " << item.first << ": " << item.second << " kcal\n";
+                    }
+                    std::cout << "\n";
+                }
+                break;
+            }
+            case 5:
                 exit(0);
 
             default:
