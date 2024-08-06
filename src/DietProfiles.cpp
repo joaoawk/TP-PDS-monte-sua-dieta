@@ -47,3 +47,32 @@ std::unordered_map<std::string, float> DietProfiles::get_macros() {
   macros["fats"] = 0.2 * calories / 9.0;
   return macros;
 }
+
+std::unordered_map<std::string, std::unordered_map<std::string, int>> DietProfiles::suggest_meals() {
+    std::unordered_map<std::string, std::unordered_map<std::string, int>> meals;
+    int daily_calories = get_needed_calories();
+
+    // Sugestões de refeições com calorias em 100g
+    meals["Café da Manhã"] = {
+        {"Ovos mexidos", 150}, 
+        {"Aveia com frutas", 350}, 
+        {"Suco de laranja", 45}
+    };
+    meals["Almoço"] = {
+        {"Frango grelhado", 165}, 
+        {"Arroz integral", 111}, 
+        {"Legumes cozidos", 40}
+    };
+    meals["Lanche"] = {
+        {"Iogurte grego", 59}, 
+        {"Frutas", 52}, 
+        {"Castanhas", 607}
+    };
+    meals["Jantar"] = {
+        {"Peixe grelhado", 150}, 
+        {"Salada", 20}, 
+        {"Batata doce", 90}
+    };
+
+    return meals;
+}
