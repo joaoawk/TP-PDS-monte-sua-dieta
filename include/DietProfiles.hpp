@@ -25,6 +25,8 @@ class DietProfiles {
 
     std::unordered_map<std::string, float> get_macros();
 
+    std::unordered_map<std::string, std::unordered_map<std::string, int>> suggest_meals();
+
 };
 
 #endif
